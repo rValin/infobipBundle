@@ -5,8 +5,8 @@
     "description": "RValin InfobipBundle",
     "require": {
         "php": ">=5.3.9",
-        "symfony/symfony": ">=2.8",
-        "infobip/infobip-api-php-client": "dev-master"
+        "symfony/symfony": ">=2.7",
+        "infobip/infobip-api-php-client": "2.0.*"
     },
     "autoload": {
         "psr-4": { "RValin\\InfoBipBundle\\": "" }
