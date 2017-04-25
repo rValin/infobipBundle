@@ -1,18 +1,13 @@
 {
-    "name": "rvalin/infobipbundle",
-    "license": "proprietary",
+    "name": "rvalin/infobip-bundle",
+    "license": "MIT",
     "type": "project",
-    "autoload": {
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Tests\\": "tests/"
-        },
-        "files": [
-            "vendor/symfony/symfony/src/Symfony/Component/VarDumper/Resources/functions/dump.php"
-        ]
-    },
+    "description": "RValin InfobipBundle",
     "require": {
-        "infobip/infobip-api-php-client": "dev-master"
+        "php": ">=5.3.9",
+        "symfony/symfony": ">=2.8"
+    },
+    "autoload": {
+        "psr-4": { "RValin\\InfoBipBundle\\": "" }
     }
 }
