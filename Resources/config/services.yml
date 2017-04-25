@@ -1,0 +1,4 @@
+services:
+    r_valin_info_bip.sms_manager:
+        class: RValin\InfoBipBundle\Manager\SmsManager
+        arguments: ["", "", ""]
