@@ -1,0 +1,24 @@
+{
+    "homepage": "https://github.com/rValin/infobipBundle",
+    "keywords": ["infobip"],
+    "minimum-stability": "dev",
+    "license": "MIT",
+    "type": "library",
+    "name": "rvalin/infobip-bundle",
+    "description": "a Symfony Bundle for InfoBip",
+    "require": {
+        "php": ">=5.3.9",
+        "symfony/symfony": ">=2.7",
+        "infobip/infobip-api-php-client": "2.0.*"
+    },
+    "autoload": {
+        "psr-4": { "RValin\\InfoBipBundle\\": "" }
+    },
+    "authors": [
+        {
+            "name": "Romain Valin",
+            "email": "romain.valin.web@gmail.com",
+            "homepage": "http://www.romain-valin.fr"
+        }
+    ]
+}
