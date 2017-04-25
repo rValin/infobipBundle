@@ -37,10 +37,13 @@ class SmsManager {
 
     /**
      * Create new Message object
+     * @return Message
      */
     public function createMessage(){
         $message = new Message();
         $message->setFrom($this->_from);
+
+        return $message;
     }
 
     /**
