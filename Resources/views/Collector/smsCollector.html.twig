@@ -32,17 +32,20 @@
             <div class="card">
                 <div class="card-block">
                     <span class="label">Sms info</span>
-                    <pre>To: {{ sms.to|join(', ') }}
-                        {% if sms.intercept is not empty %}
-                            Intercept: {{ sms.intercept|join(', ') }}
-                        {% endif %}
-                        Date: {{ sms.date|date('d-m-Y H:i:s') }}
+                    <pre>
+{% if sms.intercept %}
+To: {{ sms.originalTo|join(', ') }}
+Intercept: {{ sms.message.to|join(', ') }}
+{% else %}
+To: {{ sms.message.to|join(', ') }}
+{% endif %}
+send: {% if sms.send %}true{% else %}false{% endif %}
 </pre>
                 </div>
 
                 <div class="card-block">
                     <span class="label">Message</span>
-                    <pre>{{ sms.message }}</pre>
+                    <pre>{{ sms.message.text }}</pre>
                 </div>
             </div>
         {% endfor %}
