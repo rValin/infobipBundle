@@ -27,8 +27,10 @@ class RValinInfoBipExtension extends Extension
 
 
         $def = $container->getDefinition('r_valin_info_bip.sms_manager');
-        $def->replaceArgument(0, $config['from']);
-        $def->replaceArgument(1, $config['user']);
-        $def->replaceArgument(2, $config['password']);
+        $def->replaceArgument(1, $config['from']);
+        $def->replaceArgument(2, $config['user']);
+        $def->replaceArgument(3, $config['password']);
+        $def->replaceArgument(4, $config['delivery_number']);
+        $def->replaceArgument(5, $config['send_sms']);
     }
 }

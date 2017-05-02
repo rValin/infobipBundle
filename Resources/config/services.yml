@@ -1,4 +1,11 @@
 services:
     r_valin_info_bip.sms_manager:
         class: RValin\InfoBipBundle\Manager\SmsManager
-        arguments: ["", "", ""]
+        arguments: ['@r_valin_info_bip.sms_logger', "", "", "", "", ""]
+    r_valin_info_bip.sms_logger:
+            class:  RValin\InfoBipBundle\Collector\SmsLogger
+    r_valin_info_bip.sms_collector:
+        class: RValin\InfoBipBundle\Collector\SmsCollector
+        arguments: ['@r_valin_info_bip.sms_logger']
+        tags:
+            - { name: data_collector, template: 'RValinInfoBipBundle:Collector:smsCollector.html.twig', id: "sms" }

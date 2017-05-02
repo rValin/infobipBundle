@@ -1,122 +1,52 @@
 <?php
-/**
- * creator: Romain Valin
- * Date: 25/04/17
- * Time: 10:28
- */
 
 namespace RValin\InfoBipBundle\Object;
 
+class Message{
+    private $_message;
+    private $_log;
 
-use infobip\api\model\sms\mt\send\textual\SMSTextualRequest;
-
-class Message
-{
-    /**
-     * Send of the message
-     * @var string
-     */
-    private $_from;
-
-    /**
-     * @var array
-     */
-    private $_to = array();
-
-    /**
-     * sms text
-     * @var string
-     */
-    private $_text;
-
-    public function getInfobipMessage() {
-        $requestBody = new SMSTextualRequest();
-        $requestBody->setFrom($this->_from);
-        $requestBody->setTo($this->_to);
-        $requestBody->setText($this->_text);
-
-        return $requestBody;
+    public function __construct($message, $log)
+    {
+        $this->_message = $message;
+        $this->_log = $log;
     }
 
     /**
      * @return mixed
      */
-    public function getFrom()
+    public function getMessage()
     {
-        return $this->_from;
+        return $this->_message;
     }
 
     /**
-     * @param mixed $from
+     * @param mixed $message
      * @return Message
      */
-    public function setFrom($from)
+    public function setMessage($message)
     {
-        $this->_from = $from;
+        $this->_message = $message;
         return $this;
     }
 
     /**
      * @return mixed
      */
-    public function getTo()
+    public function getLog()
     {
-        return $this->_to;
+        return $this->_log;
     }
 
     /**
-     * @param mixed $to
+     * @param mixed $log
      * @return Message
      */
-    public function setTo($phoneNumbers)
+    public function setLog($log)
     {
-        // must be an array
-        if (!is_array($phoneNumbers)) {
-            $phoneNumbers = array($phoneNumbers);
-        }
-        $this->_to = array_unique($phoneNumbers);
+        $this->_log = $log;
         return $this;
     }
 
-    /**
-     * @param $phoneNumber
-     * @return $this
-     */
-    public function addTo($phoneNumber){
-        if (!in_array($phoneNumber, $this->_to)) {
-            $this->_to[] = $phoneNumber;
-        }
 
-        return $this;
-    }
-
-    /**
-     * @param $to
-     * @return $this
-     */
-    public function removeTo($to){
-        if(($key = array_search($to, $this->_to)) !== false) {
-            unset($this->_to[$key]);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getText()
-    {
-        return $this->_text;
-    }
-
-    /**
-     * @param mixed $text
-     * @return Message
-     */
-    public function setText($text)
-    {
-        $this->_text = $text;
-        return $this;
-    }
 }
